@@ -37,7 +37,7 @@ class StarterkitServiceProvider extends PackageServiceProvider
             __DIR__ . '/../resources/css/' => resource_path('css/'),
             __DIR__ . '/../resources/views/' => resource_path('views/'),
         ], 'starterkit-assets');
-        
+
         $this->publishes([
             __DIR__ . '/../database/migrations/' => base_path('database/migrations/'),
         ], 'starterkit-migrations');
@@ -47,23 +47,36 @@ class StarterkitServiceProvider extends PackageServiceProvider
         ], 'starterkit-seeders');
 
         $this->publishes([
+            __DIR__ . '/../routes' => base_path('routes'),
+        ], 'starterkit-routes');
+
+        $this->publishes([
             __DIR__ . '/Models' => app_path('Models'),
         ], 'starterkit-models');
 
         $this->publishes([
-            __DIR__ . '/Http/Controllers' => app_path('Htttp/Controllers'),
+            __DIR__ . '/Helpers' => app_path('Helpers'),
+        ], 'starterkit-helpers');
+
+        $this->publishes([
+            __DIR__ . '/Http/Controllers' => app_path('Http/Controllers'),
         ], 'starterkit-controllers');
 
         $this->publishes([
-            __DIR__ . '/Http/Repositories' => app_path('Htttp/Repositories'),
+            __DIR__ . '/Http/Repositories' => app_path('Http/Repositories'),
         ], 'starterkit-repositories');
 
         $this->publishes([
-            __DIR__ . '/Http/Requests' => app_path('Htttp/Requests'),
+            __DIR__ . '/Http/Requests' => app_path('Http/Requests'),
         ], 'starterkit-requests');
 
         $this->publishes([
-            __DIR__ . '/Http/Resources' => app_path('Htttp/Resources'),
+            __DIR__ . '/Http/Resources' => app_path('Http/Resources'),
         ], 'starterkit-resources');
+
+        $this->publishes([
+            __DIR__ . '/Http/Middleware' => app_path('Http/Middleware'),
+        ], 'starterkit-middleware');
+
     }
 }

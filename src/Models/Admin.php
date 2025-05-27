@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Sluggable\SlugOptions;
 
 class Admin extends Authenticatable
 {
@@ -20,6 +21,7 @@ class Admin extends Authenticatable
     use HasFactory;
     use Notifiable;
     use HasRoles;
+    use HasSlug;
 
     use SoftDeletes;
     protected $guard_name = 'admin';
@@ -56,6 +58,14 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+
 
     public function adminPassword()
     {

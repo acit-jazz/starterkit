@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Resources\Backend\MediaResource;
-use App\Models\Media;
+use AcitJazz\Starterkit\Http\Resources\Backend\MediaResource;
+use AcitJazz\Starterkit\Models\Media;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;

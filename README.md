@@ -58,7 +58,8 @@ php artisan vendor:publish --tag=starterkit-controllers
 php artisan vendor:publish --tag=starterkit-repositories
 php artisan vendor:publish --tag=starterkit-requests
 php artisan vendor:publish --tag=starterkit-resources
-
+php artisan vendor:publish --tag=routes
+php artisan starterkit:adjusted-namespace
 ```
 
 ## Usage

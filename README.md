@@ -8,14 +8,6 @@
     "predis/predis": "^3.0",
 ```
 
-```bash
-   npm install @fortawesome/fontawesome-free
-   npm install @he-tree/vue
-   npm install @vueup/vue-quill
-   npm install quill-image-uploader
-   npm install vue3-dropzone
-   npm install toastify-js
-```
 ## Installation
 
 You can install the package via composer:
@@ -28,6 +20,15 @@ laravel new demoproject
 composer require acitjazz/starterkit
 ```
 
+```bash
+   npm install @fortawesome/fontawesome-free
+   npm install @he-tree/vue
+   npm install @vueup/vue-quill
+   npm install quill-image-uploader
+   npm install vue3-dropzone
+   npm install toastify-js
+```
+
 You can publish and run the migrations with:
 
 ```bash
@@ -35,40 +36,34 @@ php artisan vendor:publish --tag="starterkit-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
+
+Publish Assets,Seeders,Models,Controllers,Repositories,Requests,Resources
 
 ```bash
-php artisan vendor:publish --tag="starterkit-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish Assets,Seeders,Models,Controllers,Repositories,Requests,Resources
-
-```bash
-php artisan vendor:publish --tag=starterkit-assets
+php artisan vendor:publish --tag=starterkit-assets --force
 php artisan vendor:publish --tag=starterkit-seeders
 php artisan vendor:publish --tag=starterkit-models
 php artisan vendor:publish --tag=starterkit-controllers
 php artisan vendor:publish --tag=starterkit-repositories
 php artisan vendor:publish --tag=starterkit-requests
+php artisan vendor:publish --tag=starterkit-helpers
 php artisan vendor:publish --tag=starterkit-resources
+php artisan vendor:publish --tag=starterkit-queryfilters
+php artisan vendor:publish --tag=starterkit-traits
+php artisan vendor:publish --tag=starterkit-rules
 php artisan vendor:publish --tag=routes
 php artisan starterkit:adjusted-namespace
 ```
 
-## Usage
+And now  un seeder data
 
-```php
-$starterkit = new AcitJazz\Starterkit();
-echo $starterkit->echoPhrase('Hello, AcitJazz!');
+```bash
+php artisan db:seed --class=AdminSeeder
 ```
-
+## Usage
+/backend/login
+email: super@mypage.id
+password : Super1q2w3e++2025
 ## Testing
 
 ```bash

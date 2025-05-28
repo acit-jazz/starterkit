@@ -1,15 +1,15 @@
 <?php
 
-use AcitJazz\Starterkit\Http\Controllers\AuthAdmin\AuthAdminController;
-use AcitJazz\Starterkit\Http\Controllers\Backend\AdministratorController;
-use AcitJazz\Starterkit\Http\Controllers\Backend\MediaController;
-use AcitJazz\Starterkit\Http\Controllers\Backend\PageController;
-use AcitJazz\Starterkit\Http\Controllers\Backend\UserController;
-use AcitJazz\Starterkit\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\AuthAdmin\AuthAdminController;
+use App\Http\Controllers\Backend\AdministratorController;
+use App\Http\Controllers\Backend\MediaController;
+use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::group(['middleware' => ['auth.admin']], function () {
+Route::group(['middleware' => ['auth.admin'],'prefix'=> 'backend'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('admin_permission:View Dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin_permission:View Dashboard');
 
@@ -61,6 +61,10 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::patch('/administrator/{administrator}', [AdministratorController::class, 'update'])->name('administrator.update')->middleware('admin_permission:Edit Admin');
 });
 
-Route::get('/login', [AuthAdminController::class, 'create'])->name('admin.login.create');
-Route::post('/login', [AuthAdminController::class, 'login'])->name('admin.login');
-Route::post('logout', [AuthAdminController::class, 'destroy'])->name('admin.logout');
+Route::group(['middleware' => ['guest'],'prefix'=> 'backend'], function () {
+    Route::get('/login', [AuthAdminController::class, 'create'])->name('admin.login.create');
+    Route::post('/login', [AuthAdminController::class, 'login'])->name('admin.login');
+    Route::post('logout', [AuthAdminController::class, 'destroy'])->name('admin.logout');
+});
+
+require __DIR__.'/settings.php';

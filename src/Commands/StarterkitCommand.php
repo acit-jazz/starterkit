@@ -205,19 +205,6 @@ class StarterkitCommand extends Command
             $updated = true;
         }
 
-        // Add backend route group
-        if (!str_contains($contents, "->group(base_path('routes/backend.php'))")) {
-            $routeCode = <<<EOT
-            \Illuminate\\Support\\Facades\\Route::middleware(['web'])
-                ->prefix('backend')
-                ->group(base_path('routes/backend.php'));
-        EOT;
-
-            $contents = preg_replace('/(public function boot\(\): void\s*\{(?:[^}]*)?)/', "\$1\n" . $routeCode . "\n", $contents);
-            $this->info('✅ Backend route loader added.');
-            $updated = true;
-        }
-
         if ($updated) {
             file_put_contents($providerPath, $contents);
             $this->info('✅ AppServiceProvider updated.');

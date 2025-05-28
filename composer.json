@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.2",
         "predis/predis": "^3.0",
         "spatie/laravel-package-tools": "^1.16",
         "spatie/laravel-permission": "^6.18",

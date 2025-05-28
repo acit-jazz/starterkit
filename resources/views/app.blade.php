@@ -9,13 +9,13 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
         <meta property="article:modified_time" content="{{date('c')}}" />
-        <title>{{ $meta['title'] ?? config('app.name',  env('social_id')) }}</title>
-        <meta head-key="description" name="description" content="{{ $meta['title'] ?? '' }}"/>
+        <title>{{  isset($meta) ? $meta['title']  : config('app.name',  env('social_id')) }}</title>
+        <meta head-key="description" name="description" content="{{  isset($meta) ? $meta['title']  : '' }}"/>
         <meta head-key="og:type" name="og:type" content="article" />
-        <meta head-key="og:title" property="og:title" content="{{ $meta['title'] }}"/>
-        <meta head-key="og:description" property="og:description" content="{{ $meta['description'] ?? '' }}"/>
-        <meta head-key="og:image" property="og:image" content="{{ $meta['image'] ?? '' }}"/>
-        <meta head-key="og:image:secure" property="og:image:secure" content="{{ $meta['image'] ?? '' }}"/>
+        <meta head-key="og:title" property="og:title" content="{{  isset($meta) ? $meta['title']  : '' }}"/>
+        <meta head-key="og:description" property="og:description" content="{{ isset($meta) ? $meta['description'] : '' }}"/>
+        <meta head-key="og:image" property="og:image" content="{{ isset($meta) ?  $meta['image'] : '' }}"/>
+        <meta head-key="og:image:secure" property="og:image:secure" content="{{ isset($meta) ?  $meta['image'] : '' }}"/>
         <meta head-key="og:image:width" name="og:image:width" content="650" />
         <meta head-key="og:image:height" name="og:image:height" content="366" />
 
@@ -23,8 +23,8 @@
         <meta head-key="twitter:site" name="twitter:site" content="@{{ env('social_id') }}" />
         <meta head-key="twitter:site:id" name="twitter:site:id" content="@{{ env('social_id') }}" />
         <meta head-key="twitter:creator" name="twitter:creator" content="@{{ env('social_id') }}" />
-        <meta head-key="twitter:description" name="twitter:description" content="{{ $meta['title'] ?? '' }}"/>
-        <meta head-key="twitter:image" name="twitter:image" content="{{ $meta['image'] ?? '' }}"/>
+        <meta head-key="twitter:description" name="twitter:description" content="{{  isset($meta) ? $meta['title']  : '' }}"/>
+        <meta head-key="twitter:image" name="twitter:image" content="{{ isset($meta) ?  $meta['image'] : '' }}"/>
         <link rel="canonical" href="{{request()->fullUrl() }}" />
         <link rel="alternate" href="{{request()->fullUrl() }}" hreflang="id" />
         @if (env('APP_ENV') != 'production')

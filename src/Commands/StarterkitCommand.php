@@ -236,6 +236,7 @@ class StarterkitCommand extends Command
                 'role' => \\Spatie\\Permission\\Middleware\\RoleMiddleware::class,
                 'role_or_permission' => \\Spatie\\Permission\\Middleware\\RoleOrPermissionMiddleware::class,
                 'admin_permission' => \\App\\Http\\Middleware\\AdminPermission::class,
+                'guest.admin' => \\App\\Http\\Middleware\\GuestAdmin::class,
             ]);
         PHP;
 

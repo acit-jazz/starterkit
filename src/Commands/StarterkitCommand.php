@@ -13,9 +13,13 @@ class StarterkitCommand extends Command
     public function handle()
     {
         $this->publishModels();
+        $this->publishTraits();
         $this->publishRoutes();
         $this->publishSeeders();
         $this->publishHttp();
+        $this->publishTraits();
+        $this->publishQueryFilters();
+        $this->publishRules();
         $this->updateAuthConfig();
         $this->updateAppServiceProvider();
         $this->updateBootstrapApp();
@@ -35,6 +39,52 @@ class StarterkitCommand extends Command
 
         $this->info('✅ Models published with updated namespaces.');
     }
+
+    protected function publishTraits()
+    {
+        $source = base_path('vendor/acitjazz/starterkit/src/Traits');
+        $destination = app_path('Traits');
+        File::copyDirectory($source, $destination);
+
+        foreach (File::allFiles($destination) as $file) {
+            $contents = File::get($file->getPathname());
+            $updated = str_replace(['namespace AcitJazz\Starterkit', 'use AcitJazz\Starterkit'], ['namespace App', 'use App'], $contents);
+            File::put($file->getPathname(), $updated);
+        }
+
+        $this->info('✅ Traits published with updated namespaces.');
+    }
+
+    protected function publishQueryFilters()
+    {
+        $source = base_path('vendor/acitjazz/starterkit/src/QueryFilters');
+        $destination = app_path('QueryFilters');
+        File::copyDirectory($source, $destination);
+
+        foreach (File::allFiles($destination) as $file) {
+            $contents = File::get($file->getPathname());
+            $updated = str_replace(['namespace AcitJazz\Starterkit', 'use AcitJazz\Starterkit'], ['namespace App', 'use App'], $contents);
+            File::put($file->getPathname(), $updated);
+        }
+
+        $this->info('✅ Traits published with updated namespaces.');
+    }
+
+    protected function publishRules()
+    {
+        $source = base_path('vendor/acitjazz/starterkit/src/Rules');
+        $destination = app_path('Rules');
+        File::copyDirectory($source, $destination);
+
+        foreach (File::allFiles($destination) as $file) {
+            $contents = File::get($file->getPathname());
+            $updated = str_replace(['namespace AcitJazz\Starterkit', 'use AcitJazz\Starterkit'], ['namespace App', 'use App'], $contents);
+            File::put($file->getPathname(), $updated);
+        }
+
+        $this->info('✅ Traits published with updated namespaces.');
+    }
+
 
     protected function publishRoutes()
     {

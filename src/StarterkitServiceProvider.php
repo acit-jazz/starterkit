@@ -55,6 +55,18 @@ class StarterkitServiceProvider extends PackageServiceProvider
         ], 'starterkit-models');
 
         $this->publishes([
+            __DIR__ . '/Rules' => app_path('Rules'),
+        ], 'starterkit-rules');
+
+        $this->publishes([
+            __DIR__ . '/QueryFilters' => app_path('QueryFilters'),
+        ], 'starterkit-queryfilters');
+        
+        $this->publishes([
+            __DIR__ . '/Traits' => app_path('Traits'),
+        ], 'starterkit-traits');
+
+        $this->publishes([
             __DIR__ . '/Helpers' => app_path('Helpers'),
         ], 'starterkit-helpers');
 

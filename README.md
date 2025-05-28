@@ -27,6 +27,7 @@ composer require acitjazz/starterkit
    npm install quill-image-uploader
    npm install vue3-dropzone
    npm install toastify-js
+   npm install swiper
 ```
 
 You can publish and run the migrations with:

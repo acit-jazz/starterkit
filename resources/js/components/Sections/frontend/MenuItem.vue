@@ -4,7 +4,7 @@
     <component
       :is="getComponentType(item)"
       v-bind="getComponentProps(item)"
-      class="block px-4 py-2 text-gray-800 hover:text-blue-600 w-full text-left font-semibold"
+      class="menu-item"
     >
       {{ item.title }}
     </component>
@@ -12,13 +12,13 @@
     <!-- Desktop Dropdown -->
     <ul
       v-if="item.children?.length && !mobile"
-      class="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b border border-gray-100 opacity-0 group-hover:opacity-100 invisible group-hover:visible pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50"
+      class="sub-menu opacity-0"
     >
       <li v-for="child in item.children" :key="child.id">
         <component
           :is="getComponentType(child)"
           v-bind="getComponentProps(child)"
-          class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+          class="sub-menu-item"
         >
           {{ child.title }}
         </component>
@@ -28,13 +28,13 @@
     <!-- Mobile Dropdown -->
     <ul
       v-if="item.children?.length && mobile"
-      class="pl-4 space-y-1"
+      class="sub-menu"
     >
       <li v-for="child in item.children" :key="child.id">
         <component
           :is="getComponentType(child)"
           v-bind="getComponentProps(child)"
-          class="block px-4 py-2 text-gray-600 hover:text-blue-600 w-full text-left"
+          class="sub-menu-item"
         >
           {{ child.title }}
         </component>
@@ -44,7 +44,8 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
+import { Link,usePage } from '@inertiajs/vue3'
+import { ref, useSlots,onMounted,watch } from 'vue'
 
 const props = defineProps({
   item: Object,

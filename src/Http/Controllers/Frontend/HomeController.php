@@ -22,7 +22,7 @@ class HomeController extends Controller
         }
         $meta = checkMeta($page->meta);
         $page = PageResource::make($page)->resolve();
-        return Inertia::render('Views/Pages/Home', [
+        return Inertia::render('page/Home', [
             'page' => $page,
          ])->withViewData([
             'meta' => $meta,

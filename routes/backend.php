@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web','auth.admin'],'prefix'=> 'backend'], functi
     Route::post('/media/{media}/restore', [MediaController::class, 'restore'])->name('media.restore')->middleware('admin_permission:Delete Media');
     Route::get('/media', [MediaController::class, 'index'])->name('media.index')->middleware('admin_permission:View Media');
     Route::post('/media', [MediaController::class, 'store'])->name('media.store')->middleware('admin_permission:Create Media');
-    Route::patch('/media/{media}', [MediaController::class, 'update'])->name('page.update')->middleware('admin_permission:Edit Media');
+    Route::patch('/media/{media}', [MediaController::class, 'update'])->name('media.update')->middleware('admin_permission:Edit Media');
 
 
     Route::get('/administrator/{administrator}/role-permissions', [AdministratorController::class, 'rolePermission'])->name('administrator.rolePermission')->middleware('admin_permission:Edit Admin');

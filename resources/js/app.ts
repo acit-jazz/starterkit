@@ -1,6 +1,7 @@
 import '../css/app.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import globalComponent from "@/Components/globalComponent";
+import globalComponent from "@/globalComponent";
+import sectionComponent from "@/sectionComponent";
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
@@ -30,6 +31,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(globalComponent)
+            .use(sectionComponent)
             .use(ZiggyVue)
             .mount(el);
     },

@@ -29,7 +29,7 @@ const sortBy = (field) => {
        <div class="flex flex-wrap mt-4">
          <div class="w-full mb-12 px-4">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6">
-                <div class="rounded-t mb-0 px-6 py-4 border-0">
+                <div class="rounded-t mb-0 px-3 py-4 border-0">
                     <div class="flex flex-wrap items-center">
                         <div class="relative flex">
                             <div class="flex items-center">

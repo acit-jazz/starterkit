@@ -1,11 +1,12 @@
 <?php
 
-namespace AcitJazz\Starterkit\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
+use Facades\AcitJazz\MainMenu\Http\Repositories\MenuRepository;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -44,6 +45,9 @@ class HandleInertiaRequests extends Middleware
     {
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
         $user = auth('admin')->user() ?? auth()->user();
+        $menus = class_exists(\AcitJazz\MainMenu\Http\Repositories\MenuRepository::class)
+        ? MenuRepository::getByLocation('Header')
+        : [];
         return [
             ...parent::share($request),
             'name' => config('app.name'),
@@ -52,6 +56,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $user,
                 'guard' => auth()->guard()->name
             ],
+            'menus' => $menus,
             'navigation' => navigation(),
             'components' => components(),
             'current_path'=> request()->fullUrl(),

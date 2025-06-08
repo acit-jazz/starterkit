@@ -28,15 +28,8 @@ composer require acitjazz/starterkit
    npm install vue3-dropzone
    npm install toastify-js
    npm install swiper
+   npm install -D sass-embedded
 ```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="starterkit-migrations"
-php artisan migrate
-```
-
 
 Publish Assets,Seeders,Models,Controllers,Repositories,Requests,Resources
 
@@ -56,10 +49,19 @@ php artisan vendor:publish --tag=routes
 php artisan starterkit:adjusted-namespace
 ```
 
+Rename .env.example and config your database
+
+Now, you can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="starterkit-migrations"
+php artisan migrate
+```
+
 And now  un seeder data
 
 ```bash
-php artisan db:seed --class=AdminSeeder
+php artisan db:seed 
 ```
 ## Usage
 /backend/login

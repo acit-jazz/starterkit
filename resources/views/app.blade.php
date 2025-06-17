@@ -48,7 +48,7 @@
         <script>
             Ziggy.url = '{{ env('APP_URL') }}'
         </script>
-        @vite(['resources/js/app.js', "resources/js/frontend/{$page['component']}.vue"])
+        @vite(['resources/js/app.ts', "resources/js/frontend/{$page['component']}.vue"])
             @if (env('APP_ENV') == 'production')
              <!-- Google tag (gtag.js) Here-->
         @endif

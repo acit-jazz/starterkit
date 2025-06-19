@@ -37,7 +37,7 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
         @routes
-        @vite(['resources/js/admin.ts', "resources/js/admin/{$page['component']}.vue"])
+        @vite(['resources/js/admin.ts'])
         @inertiaHead
     </head>
     <body class="font-sans antialiased">

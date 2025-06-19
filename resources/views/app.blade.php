@@ -40,15 +40,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         @inertiaHead
-        @if (env('APP_ENV') == 'production')
-        @else
-        @endif
 
         @routes
         <script>
             Ziggy.url = '{{ env('APP_URL') }}'
         </script>
-        @vite(['resources/js/app.ts', "resources/js/frontend/{$page['component']}.vue"])
+        @vite(['resources/js/app.ts'])
             @if (env('APP_ENV') == 'production')
              <!-- Google tag (gtag.js) Here-->
         @endif

@@ -26,7 +26,6 @@ const components = {
   InputError: () => import("@/components/Forms/InputError.vue"),
   TextAreaInput: () => import("@/components/Forms/TextAreaInput.vue"),
   InputColor: () => import("@/components/Forms/InputColor.vue"),
-  InputNavigation: () => import("@/components/Forms/InputNavigation.vue"),
   Th: () => import("@/components/Table/Th.vue"),
   Td: () => import("@/components/Table/Td.vue"),
   SecondaryLink: () => import("@/components/Buttons/SecondaryLink.vue"),
@@ -37,6 +36,7 @@ const components = {
   Badge: () => import("@/components/Buttons/Badge.vue"),
   Pagination: () => import("@/components/Buttons/Pagination.vue"),
   SpinnerLoader: () => import("@/components/Loaders/SpinnerLoader.vue"),
+  PopupComponentList: () => import("@/components/Popups/PopupComponentList.vue"),
 }
 
 export default {

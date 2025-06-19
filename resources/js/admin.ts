@@ -24,9 +24,34 @@ declare module 'vite/client' {
 
 const appName = import.meta.env.VITE_APP_NAME || 'My Page';
 
+// 1. Gabungkan semua komponen sekali saja
+const pages = {
+    ...import.meta.glob('./admin/**/*.vue'),
+    ...import.meta.glob('../../vendor/acitjazz/*/resources/js/**/*.vue'),
+};
+
+// 2. Helper untuk mencari & meng‑import halaman
+function resolvePage(name: string) {
+    // Key mana pun yang berakhir dengan `/name.vue`
+    const importer = Object.entries(pages).find(([key]) =>
+        key.endsWith(`/${name}.vue`)
+    )?.[1];
+
+    if (!importer) {
+        throw new Error(`Page not found: ${name}`);
+    }
+
+    // ⬇️  KEMBALIKAN Promise yang menghasilkan objek komponen
+    return importer().then(mod => mod.default);
+}
+
+
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./admin/${name}.vue`, import.meta.glob<DefineComponent>('./admin/**/*.vue')),
+    resolve: name => {
+        console.log('Minta halaman:', name);
+        return resolvePage(name);
+    },
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)

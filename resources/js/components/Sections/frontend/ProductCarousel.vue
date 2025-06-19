@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+    import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 import { ref,onMounted  } from 'vue'
 import mobile from "@/Snippets/mobile";

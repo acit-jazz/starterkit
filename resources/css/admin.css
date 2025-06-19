@@ -7,6 +7,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@source inline("{hover:,focus:,}bg-{white,black,gray-{100,200,300,400,500,600,700,800,900},red-{500,600,700},orange-{400,500,600},amber-{300,400,500},yellow-{300,400,500},lime-{400,500},green-{400,500,600},emerald-{400,500,600},teal-{400,500},cyan-{400,500},blue-{400,500,600},indigo-{400,500,600},violet-{400,500,600},purple-{400,500,600},fuchsia-{400,500},pink-{400,500},rose-{400,500},slate-500,zinc-500,neutral-500,stone-500}");
+@source inline("{hover:,focus:,}text-{white,black,gray-{100,200,300,400,500,600,700,800,900},red-{500,600,700},orange-{400,500,600},amber-{300,400,500},yellow-{300,400,500},lime-{400,500},green-{400,500,600},emerald-{400,500,600},teal-{400,500},cyan-{400,500},blue-{400,500,600},indigo-{400,500,600},violet-{400,500,600},purple-{400,500,600},fuchsia-{400,500},pink-{400,500},rose-{400,500},slate-500,zinc-500,neutral-500,stone-500}");
+
 @theme inline {
   --font-sans:
     Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',

@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar">
+  <nav class="fixed w-full left-0 top-0 bg-white z-100 shadow-md" >
     <div class="nav-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
+      <div class="flex  h-18 items-center">
         <div class="logo-wrapper flex aspect-square size-16 items-center justify-center rounded-md">
           <AppLogoIcon v-if="!hasSlotContent" class="size-5" />
           <slot />
@@ -17,7 +17,7 @@
           </svg>
         </button>
         <!-- Desktop Menu -->
-        <ul class="desktop-menu hidden md:flex space-x-6 h-full">
+        <ul class="desktop-menu hidden md:flex space-x-6 h-full ml-auto">
           <MenuItem v-for="item in menus" :key="item.id" :item="item" />
         </ul>
       </div>
@@ -38,10 +38,6 @@
 import { ref, useSlots } from 'vue'
 import type { PropType } from 'vue'
 import MenuItem from './MenuItem.vue'
-import AppLogoIcon from '@/components/AppLogoIcon.vue';
-import { useTheme } from '@/composables/useTheme'
-
-useTheme(['main-menu',])
 
 interface MenuItemType {
   id: number | string

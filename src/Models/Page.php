@@ -21,6 +21,9 @@ class Page extends Model
     protected $casts = [
         'deleted_at' => 'datetime',
         'published_at' => 'datetime',
+        'meta' => 'array',
+        'banners' => 'array',
+        'sections' => 'array',
     ];
 
     protected $fillable = [

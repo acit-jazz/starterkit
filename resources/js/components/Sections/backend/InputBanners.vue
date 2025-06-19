@@ -10,7 +10,7 @@ export default defineComponent({
     };
   },
   created() {
-    this.rows = this.modelValue ?  this.parser() : this.default;
+    this.rows = this.modelValue ?  this.modelValue : this.default;
   },
 
   methods:{
@@ -28,7 +28,7 @@ export default defineComponent({
         this.banners = this.$refs.tree.getData().filter(function( obj ) {
             return obj.title != null;
         });
-        this.$emit('update:modelValue', JSON.stringify(this.banners));
+        this.$emit('update:modelValue', this.banners);
     },
     parser(){
         try {

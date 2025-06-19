@@ -31,16 +31,14 @@ if(props.modelValue == undefined){
     resfiles.value = [];
 }else if(props.modelValue == null){
     resfiles.value = [];
-}else if(props.modelValue == app_url.value+'/images/telin-meta.jpg'){
-    resfiles.value = [];
 }else if(props.modelValue.length == 0){
     resfiles.value = [];
 }else{
     try {
-        resfiles.value = JSON.parse(props.modelValue);
+        resfiles.value = props.modelValue;
         altimage.value = resfiles.value[0].altimage ?? '';
     } catch (error) {
-        resfiles.value = [];
+    console.log('error',error)
     }
 }
 const saveFile = (files) => {
@@ -67,7 +65,7 @@ const saveFile = (files) => {
     .then((response) => {
       response.data.data[0].url = "/storage" + response.data.data[0].url;
       resfiles.value = response.data.data;
-      emit("update:modelValue", JSON.stringify(resfiles.value));
+      emit("update:modelValue", resfiles.value);
       emit("uploaded", resfiles.value);
     })
     .catch((thrown) => {
@@ -89,7 +87,7 @@ const remove = (file) => {
 const updateText = () => {
     resfiles.value[0].altimage = altimage.value;
     console.log('resfiles.value',resfiles.value)
-    emit("update:modelValue", JSON.stringify(resfiles.value));
+    emit("update:modelValue", resfiles.value);
     emit("uploaded", resfiles.value);
 }
 //26,214,400
@@ -113,7 +111,7 @@ const closeGallery = () => {
 };
 const choose = (file) => {
   resfiles.value.push(file);
-  emit("update:modelValue", JSON.stringify(resfiles.value));
+  emit("update:modelValue", resfiles.value);
   emit("uploaded", resfiles.value);
   closeGallery();
 };

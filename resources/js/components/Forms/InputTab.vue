@@ -1,10 +1,6 @@
 <script setup>
 import "@he-tree/vue/style/default.css";
 import { ref, defineAsyncComponent, onMounted } from "vue";
-import SecondaryButton from '@/Admin/Components/Buttons/SecondaryButton.vue';
-const PopupComponentList = defineAsyncComponent(
-    () => import('@/Admin/Components/Popups/PopupComponentList.vue')
-)
 const props = defineProps(['modelValue']);
 
 const getId = () =>{

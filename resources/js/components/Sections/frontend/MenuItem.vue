@@ -4,7 +4,7 @@
     <component
       :is="getComponentType(item)"
       v-bind="getComponentProps(item)"
-      class="menu-item"
+      class="menu-item  text-primary"
     >
       {{ item.title }}
     </component>
@@ -18,7 +18,7 @@
         <component
           :is="getComponentType(child)"
           v-bind="getComponentProps(child)"
-          class="sub-menu-item"
+          class="sub-menu-item text-primary"
         >
           {{ child.title }}
         </component>

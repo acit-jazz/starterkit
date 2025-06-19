@@ -47,7 +47,6 @@ class StarterkitServiceProvider extends PackageServiceProvider
             __DIR__ . '/../resources/js/' => resource_path('js/'),
             __DIR__ . '/../resources/css/' => resource_path('css/'),
             __DIR__ . '/../resources/views/' => resource_path('views/'),
-            __DIR__ . '/../tailwind.config.js' => base_path('tailwind.config.js'),
             __DIR__ . '/../vite.config.ts' => base_path('vite.config.ts'),
             __DIR__ . '/../.env.example' => base_path('.env.example'),
         ], 'starterkit-assets');

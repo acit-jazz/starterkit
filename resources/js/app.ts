@@ -22,10 +22,7 @@ declare module 'vite/client' {
         readonly glob: <T>(pattern: string) => Record<string, () => Promise<T>>;
     }
 }
-
 const appName = import.meta.env.VITE_APP_NAME || 'My Page';
-
-
 // 1. Gabungkan semua komponen sekali saja
 const pages = {
     ...import.meta.glob('./frontend/**/*.vue'),

@@ -16,6 +16,14 @@ You can install the package via composer:
 ```bash
 laravel new demoproject
 ```
+or 
+```bash
+git clone https://github.com/laravel/vue-starter-kit.git demoproject
+cd demoproject
+
+```
+and Run 
+
 ```bash
 composer require acitjazz/starterkit
 ```
@@ -29,6 +37,7 @@ composer require acitjazz/starterkit
    npm install toastify-js
    npm install swiper
    npm install -D sass-embedded
+   npm install @inertiajs/server
 ```
 
 Publish Assets,Seeders,Models,Controllers,Repositories,Requests,Resources
@@ -64,9 +73,9 @@ And now  un seeder data
 php artisan db:seed 
 ```
 ## Usage
-/backend/login
-email: super@mypage.id
-password : Super1q2w3e++2025
+- /backend/login
+- email: super@mypage.id
+- password : Super1q2w3e++2025
 ## Testing
 
 ```bash
